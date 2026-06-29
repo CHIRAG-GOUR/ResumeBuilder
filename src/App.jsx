@@ -4,10 +4,12 @@ import { jsPDF } from 'jspdf';
 import { initialData } from './data';
 import ResumeForm from './ResumeForm';
 import ResumePreview from './ResumePreview';
+import JobModal from './JobModal';
 
 function App() {
   const [view, setView] = useState('home');
   const [isEditing, setIsEditing] = useState(false);
+  const [showJobModal, setShowJobModal] = useState(false);
   const [formData, setFormData] = useState(initialData);
   const contentRef = useRef(null);
 
@@ -67,6 +69,9 @@ function App() {
     
     pdf.addImage(imgData, 'JPEG', margin, margin, canvasWidth, canvasHeight);
     pdf.save(`${formData.name.replace(/\s+/g, '_')}_Resume.pdf`);
+    
+    // Show job recommendations after export
+    setShowJobModal(true);
   };
 
   const downloadJPG = async () => {
@@ -91,6 +96,9 @@ function App() {
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
+
+    // Show job recommendations after export
+    setShowJobModal(true);
   };
 
   if (view === 'home') {
@@ -129,6 +137,10 @@ function App() {
           <ResumePreview data={formData} />
         </div>
       </div>
+
+      {showJobModal && (
+        <JobModal data={formData} onClose={() => setShowJobModal(false)} />
+      )}
     </div>
   );
 }
