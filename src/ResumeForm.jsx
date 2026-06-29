@@ -90,6 +90,15 @@ export default function ResumeForm({ data, setData, onGenerate }) {
           Configure every section of your resume. The template dynamically adapts to your data.
         </p>
 
+        <div style={{...sectionStyle, background: '#eff6ff', border: '2px solid #3b82f6'}}>
+          <h2 style={{fontSize: '1.2rem', marginBottom: '15px', color: '#1e3a8a'}}>Resume Style/Template</h2>
+          <select name="template" value={data.template || 'classic'} onChange={handleChange} style={{...inputStyle, marginBottom: 0, fontWeight: 600}}>
+            <option value="classic">Classic (Two-Column, Professional)</option>
+            <option value="modern">Modern (Single-Column, Bold Header)</option>
+            <option value="minimalist">Minimalist (Clean, Typography Focused)</option>
+          </select>
+        </div>
+
         <div style={sectionStyle}>
           <h2 style={{fontSize: '1.2rem', marginBottom: '15px', color: '#1f2937'}}>Personal Details</h2>
           <label style={labelStyle}>Full Name</label><input name="name" value={data.name} onChange={handleChange} style={inputStyle} />

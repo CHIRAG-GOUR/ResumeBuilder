@@ -6,6 +6,7 @@ export const initialData = {
   linkedin: "Alexander Wright",
   linkedinUrl: "https://linkedin.com/in/alexander-wright-demo",
   location: "San Francisco, CA",
+  template: "classic",
   summary: "Results-driven Software Engineer with 5+ years of experience architecting scalable, data-intensive web applications. Proficient in modern JavaScript frameworks (React, Next.js, Node.js) and cloud infrastructure (AWS, Vercel). Recognized for leading cross-functional teams to deliver high-impact products, optimizing database query performance by 40%, and seamlessly integrating third-party APIs to enhance overall user experience.",
   skills: [
     { text: "React.js & Next.js", highlighted: true },
